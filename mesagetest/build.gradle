@@ -54,7 +54,7 @@ afterEvaluate{
             release(MavenPublication) {
                 groupId = "com.github.LeTuanVu-Dev"
                 artifactId = "demo-message-android-lib"
-                version = "0.0.4"
+                version = "0.0.3"
 
                 afterEvaluate {
                     from(components["release"])
