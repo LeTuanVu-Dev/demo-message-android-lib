@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id("maven-publish")
 }
-
+apply plugin: 'kotlin-kapt'
 android {
     namespace 'com.example.getmessage'
     compileSdk 33
@@ -40,6 +40,40 @@ android {
 }
 
 dependencies {
+    implementation platform('com.google.firebase:firebase-bom:31.2.2')
+
+    // Add the dependencies for the Crashlytics and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.5'
+    //Apero lib
+    implementation 'apero-inhouse:apero-ads:1.0.6-alpha05'
+    //firebase
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-core'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-config'
+    implementation 'com.google.firebase:firebase-inappmessaging-display'
+    implementation 'com.google.firebase:firebase-perf-ktx'
+    implementation 'com.google.firebase:firebase-core:21.1.1'
+
+    //lottie animation
+    def lottieVersion = "3.4.0"
+    //noinspection GradleDependency
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
+//apero update inapp
+    implementation 'apero:in.app.update:1.0.8@aar'
+    implementation 'com.google.android.play:app-update:2.1.0'
+    implementation 'com.google.android.play:app-update-ktx:2.1.0'
+    def room_version = "2.5.1"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
